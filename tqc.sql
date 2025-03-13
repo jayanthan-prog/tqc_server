@@ -16,6 +16,36 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`tqc` /*!40100 DEFAULT CHARACTER SET utf
 
 USE `tqc`;
 
+/*Table structure for table `google_users` */
+
+DROP TABLE IF EXISTS `google_users`;
+
+CREATE TABLE `google_users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `google_id` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified` tinyint(1) DEFAULT '0',
+  `name` varchar(255) DEFAULT NULL,
+  `given_name` varchar(255) DEFAULT NULL,
+  `family_name` varchar(255) DEFAULT NULL,
+  `picture_url` text,
+  `role` varchar(50) DEFAULT 'student',
+  `last_login` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `google_id` (`google_id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `email_2` (`email`),
+  KEY `google_id_2` (`google_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*Data for the table `google_users` */
+
+insert  into `google_users`(`id`,`google_id`,`email`,`email_verified`,`name`,`given_name`,`family_name`,`picture_url`,`role`,`last_login`,`created_at`,`updated_at`) values 
+(1,'110067925225148368632','jayanthan.ei23@bitsathy.ac.in',1,'JAYANTHAN S K','JAYANTHAN','S K','https://lh3.googleusercontent.com/a/ACg8ocKIPJ8lSrtZ99A8NoTTdXutCUCJ_NEuF6C3ErgFs5H1ZXWdG5Ub=s96-c','student','2025-03-13 13:43:24','2025-03-13 12:52:21','2025-03-13 13:43:24'),
+(2,'100445767380229394918','yogeshkumar.me23@bitsathy.ac.in',1,'YOGESH KUMAR S','YOGESH KUMAR','S','https://lh3.googleusercontent.com/a/ACg8ocKBM1QJFOlfn9JNu56mYngJT_yr9H_1lYOMa57FWprqia96dw=s96-c','student','2025-03-13 13:28:36','2025-03-13 13:28:36','2025-03-13 13:28:36');
+
 /*Table structure for table `master_login` */
 
 DROP TABLE IF EXISTS `master_login`;
